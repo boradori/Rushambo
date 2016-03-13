@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Select View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SelectViewController" customModule="Rushambo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,146 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIC-tC-QbR">
+                                <rect key="frame" x="56" y="80" width="79" height="65"/>
+                                <state key="normal" title="Rock" image="rock"/>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="31" y="80" width="75" height="65"/>
+                                </variation>
+                                <connections>
+                                    <action selector="rockButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IZw-7z-jB5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDQ-Do-L42">
+                                <rect key="frame" x="166" y="80" width="75" height="65"/>
+                                <state key="normal" title="Paper" image="paper"/>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="123" y="192" width="75" height="65"/>
+                                </variation>
+                                <connections>
+                                    <action selector="paperButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e2I-Dl-1jj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qs1-hi-lrV">
+                                <rect key="frame" x="273" y="80" width="79" height="65"/>
+                                <state key="normal" title="Scissors" image="scissors"/>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="212" y="80" width="75" height="65"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="6a8-L5-vLq" kind="show" identifier="selectHand" id="E38-Bw-U81"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qs1-hi-lrV" secondAttribute="trailing" constant="13" id="bFM-Kf-Y9S"/>
+                            <constraint firstItem="bDQ-Do-L42" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="103" id="cbh-Oe-XZq"/>
+                            <constraint firstItem="NIC-tC-QbR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="e0u-UI-BSv"/>
+                            <constraint firstItem="NIC-tC-QbR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="11" id="uAq-Bc-Fqg"/>
+                            <constraint firstItem="Qs1-hi-lrV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="wLo-DX-S6H"/>
+                            <constraint firstItem="bDQ-Do-L42" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="172" id="ytx-h5-VLr"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="uAq-Bc-Fqg"/>
+                                <exclude reference="bFM-Kf-Y9S"/>
+                                <exclude reference="wLo-DX-S6H"/>
+                                <exclude reference="cbh-Oe-XZq"/>
+                                <exclude reference="ytx-h5-VLr"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="uAq-Bc-Fqg"/>
+                                <include reference="bFM-Kf-Y9S"/>
+                                <include reference="wLo-DX-S6H"/>
+                                <include reference="cbh-Oe-XZq"/>
+                                <include reference="ytx-h5-VLr"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="781" y="528"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="xlf-yZ-Wdk">
+            <objects>
+                <viewController storyboardIdentifier="ResultViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6a8-L5-vLq" customClass="ResultViewController" customModule="Rushambo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8FS-H4-8eY"/>
+                        <viewControllerLayoutGuide type="bottom" id="77k-oP-yLS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G7f-wb-tB2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rSP-IV-sEF">
+                                <rect key="frame" x="102" y="159" width="240" height="128"/>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="40" y="159" width="240" height="128"/>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAQ-MD-c46">
+                                <rect key="frame" x="185" y="64" width="293" height="71"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="14" y="58" width="293" height="71"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7f-F0-OsW">
+                                <rect key="frame" x="185" y="311" width="78" height="30"/>
+                                <state key="normal" title="Play Again!"/>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="121" y="319" width="78" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="playAgainButton:" destination="6a8-L5-vLq" eventType="touchUpInside" id="w8m-IY-Lh5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WAQ-MD-c46" firstAttribute="top" secondItem="8FS-H4-8eY" secondAttribute="bottom" constant="38" id="Qnh-BU-iR8"/>
+                            <constraint firstItem="rSP-IV-sEF" firstAttribute="top" secondItem="WAQ-MD-c46" secondAttribute="bottom" constant="30" id="t28-Av-YuW"/>
+                            <constraint firstItem="S7f-F0-OsW" firstAttribute="top" secondItem="rSP-IV-sEF" secondAttribute="bottom" constant="32" id="zbE-BX-9Cv"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Qnh-BU-iR8"/>
+                                <exclude reference="t28-Av-YuW"/>
+                                <exclude reference="zbE-BX-9Cv"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="Qnh-BU-iR8"/>
+                                <include reference="t28-Av-YuW"/>
+                                <include reference="zbE-BX-9Cv"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="resultImage" destination="rSP-IV-sEF" id="TYr-jx-J4e"/>
+                        <outlet property="resultLabel" destination="WAQ-MD-c46" id="gqK-65-sMv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T6P-8d-REb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1418" y="528"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="paper" width="75" height="65"/>
+        <image name="rock" width="75" height="65"/>
+        <image name="scissors" width="75" height="65"/>
+    </resources>
 </document>
